@@ -1,38 +1,72 @@
 .App {
-  text-align: center;
+	background-color: #282c34;
+	height: 100vh;
+	display: grid;
+	grid-template-columns: fit-content(65vw) 1fr;
+	grid-template-rows: repeat(5, 1fr);
+	gap: 10px;
+	padding: 5px;
+	box-sizing: border-box;
+	overflow: hidden;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+	background-color: #282c34;
+
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.mess-form{
+	width: 100vw;
+	display: grid;
+	grid-template-columns: 1fr 12fr 4fr;
+	position: absolute;
+	bottom: 5px;
+	gap: 10px;
+	margin: auto;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.mess-input {
+	width:  auto;
+	height: 10vh;
+	border-radius: 10px;
+	background-color: #282c34;
+	color: #fff;
+	font-size: 1rem;
+	resize: none;
+	border: 1px solid #4e5563;
 }
 
-.App-link {
-  color: #61dafb;
+.mess-btn {
+	width:  6vw;
+	height: 10vh;
+	border-radius: 10px;
+	font-size: 1.7rem;
+	border: 1px solid #4e5563;
+	font-family: 'Open Sans Condensed', sans-serif;
+	font-weight: bold;
+	background-color: #282c34;
+	color: #fff;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.mess-info {
+	margin-right: 10px;
+	width: auto;
+	height: 10vh;
+	border-radius: 10px;
+	color: #fff;
+	border: 1px solid #4e5563;
+}
+
+.members {
+	width: auto;
+	height: 87vh;
+	border: 1px solid #4e5563;
+	border-radius: 10px;
+}
+
+.messages {
+	width: 76vw;
+	height: auto;
+	border: 1px solid #4e5563;
+	border-radius: 10px;
 }
