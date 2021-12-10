@@ -36,7 +36,10 @@ body {
 	resize: none;
 	border: 1px solid #4e5563;
 	font-size: 1.2rem;
+	box-sizing: border-box;
+	padding: 10px;
 }
+
 
 .mess-btn {
 	width:  6vw;
@@ -72,22 +75,23 @@ body {
 	font-weight: 300;
 	margin: auto;
 	text-shadow:
-     0 0 4px #fff,
-		0 0 10px #fff,
-		0 0 20px #fff,
-		0 0 30px #0fa,
-		0 0 40px #0fa,
-		0 0 50px #0fa,
-		0 0 60px #0fa,
-		0 0 70px #0fa,
-		0 0 80px #0fa,
-		0 0 90px #0fa,
-		0 0 100px #0fa;
+     	0 0 1px #fff,
+		0 0 7px #fff,
+		0 0 14px #fff,
+		0 0 21px #0fa,
+		0 0 28px #0fa,
+		0 0 35px #0fa,
+		0 0 42px #0fa,
+		0 0 49px #0fa,
+		0 0 56px #0fa,
+		0 0 63px #0fa,
+		0 0 70px #0fa;
 }
 
 h1 {
 	font-size: 2.5rem;
 	animation: blinkin 2s infinite alternate;
+	opacity: 0.75;
   }
 
   @keyframes blinkin {
@@ -95,17 +99,17 @@ h1 {
 	0%, 18%, 22%, 25%, 53%, 57%, 100% {
 
 		text-shadow:
-		0 0 4px #fff,
-		0 0 10px #fff,
-		0 0 20px #fff,
-		0 0 30px #0fa,
-		0 0 40px #0fa,
-		0 0 50px #0fa,
-		0 0 60px #0fa,
-		0 0 70px #0fa,
-		0 0 80px #0fa,
-		0 0 90px #0fa,
-		0 0 100px #0fa;
+		0 0 1px #fff,
+		0 0 7px #fff,
+		0 0 14px #fff,
+		0 0 21px #0fa,
+		0 0 28px #0fa,
+		0 0 35px #0fa,
+		0 0 42px #0fa,
+		0 0 49px #0fa,
+		0 0 56px #0fa,
+		0 0 63px #0fa,
+		0 0 70px #0fa;
 
 	}
 
@@ -156,30 +160,42 @@ h1 {
 	border: 1px solid #4e5563;
 	border-radius: 10px;
 	grid-row: 1/2;
-	display: inline-flex;
 	flex-direction: column;
-	overflow-x: auto;
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
 	padding: 20px;
 	font-family: 'Balsamiq Sans', cursive;
-	font-size: 1.2rem;
+	font-size: 1.1rem;
+	overflow: auto;
 }
 
 .message {
 	display: flex;
 	color: white;
-
+	box-sizing: content-box;
 }
 
 .mess {
-	max-width: 500px;
-	min-height: fit-content;
+	max-width: 600px;
+	margin-left: 30px;
 	border: 1px solid #4e5563;
 	padding: 15px;
-	border-radius: 9px;
-	overflow: hidden;
+	border-radius: 15px;
+	overflow: scroll;
+	animation: reaching 0.35s ease-out;
 }
 
 
+@keyframes reaching {
+	from{
+		/* transform: translateX(-100px); */
+		opacity: 0;
+		transform: scale(0.001);
+	}
+	to{
+		/* transform: translateX(0); */
+		opacity: 1;
+		transform: scale(1)
+	}
+}

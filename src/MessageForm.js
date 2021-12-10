@@ -15,11 +15,18 @@ export const MessageForm = (props) => {
 		e.target.elements.option.value = "";
 	};
 
-	const onKeyPress = (e) => {
-		if (e.charCode === 13) {
-			e.stopPropagation();
+
+
+	const handleUserKeyPress = (e) => {
+
+		if (e.which === 13 && !e.shiftKey) {
+			e.preventDefault();
+
+
+
 		}
-	}
+	};
+
 
 	return (
 		<div>
@@ -31,8 +38,7 @@ export const MessageForm = (props) => {
 					<i className="far fa-paper-plane fa-2x"></i>
 				</button>
 				<textarea
-					onKeyDown={onKeyPress}
-					type="name"
+					onKeyPress={handleUserKeyPress}
 					name="option"
 					className="mess-input"
 					value={message}

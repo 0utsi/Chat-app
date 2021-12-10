@@ -5,19 +5,27 @@ import { MessageForm } from './MessageForm';
 
 function App() {
 
-	const [messages, setMessages] = useState([{}])
+	const [messages, setMessages] = useState([])
 
 	const sendMessage = (msg) => {
 
-		const newMessageList = [
-			...messages,
-			{
-				message: msg
-			}
-		]
-		setMessages(newMessageList);
+		if (msg === '') {
 
-		console.log(newMessageList)
+			//Do nothing
+
+		} else {
+
+			const newMessageList = [
+				...messages,
+				{
+					message: msg
+				}
+			]
+			setMessages(newMessageList);
+
+			console.log(newMessageList)
+		}
+
 	}
 
 	return (
@@ -36,7 +44,6 @@ const Messages = (props) => {
 			{
 				props.message.map(({ message }) => (
 					<Message
-						key={message}
 						messageText={message}
 					/>
 				))
