@@ -1,10 +1,11 @@
 import './App.css';
 import { useState } from 'react'
+import { MessageForm } from './MessageForm';
 
 
 function App() {
 
-	const [messages, setMessages] = useState([])
+	const [messages, setMessages] = useState([{}])
 
 	const sendMessage = (msg) => {
 
@@ -33,10 +34,10 @@ const Messages = (props) => {
 	return (
 		<div className="messages">
 			{
-				props.message.map((message, index) => (
+				props.message.map(({ message }) => (
 					<Message
-						key={message.index}
-						optionText={message}
+						key={message}
+						messageText={message}
 					/>
 				))
 			}
@@ -44,11 +45,13 @@ const Messages = (props) => {
 	);
 };
 
+
+
 const Message = (props) => {
 
 	return (
 		<div className="message">
-			<p>{props.message}</p>
+			<p className="mess">{props.messageText}</p>
 		</div>
 	);
 
@@ -58,44 +61,9 @@ const Members = () => {
 
 	return (
 		<div className="members">
-
+			<img id="react-img" alt="img" src="./logo512.png" />
 		</div>
 	)
-};
-
-
-const MessageForm = (props) => {
-
-	const [message, setMessage] = useState('')
-
-
-	const onSubmit = (e) => {
-
-		e.preventDefault();
-
-		props.sendMessage(message)
-	}
-
-	return (
-		<div>
-			<form className="mess-form" onSubmit={onSubmit}>
-				<button
-					type="submit"
-					className="mess-btn"
-				>
-					<i className="far fa-paper-plane fa-2x"></i>
-				</button>
-				<input
-					type="text"
-					name="option"
-					className="mess-input"
-					value={message}
-					onChange={(e) => setMessage(e.target.value)}
-				/>
-				<div className="mess-info"></div>
-			</form>
-		</div>
-	);
 };
 
 

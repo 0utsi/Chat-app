@@ -1,8 +1,9 @@
+
 .App {
 	background-color: #282c34;
 	height: 100vh;
 	display: grid;
-	grid-template-columns: fit-content(65vw) 1fr;
+	grid-template-columns: 13fr 4fr;
 	grid-template-rows: repeat(5, 1fr);
 	gap: 10px;
 	padding: 5px;
@@ -12,9 +13,9 @@
 
 body {
 	background-color: #282c34;
-
+	scroll-behavior: smooth;
 }
-
+/* Dolny formularz z przyciskiem */
 .mess-form{
 	width: 100vw;
 	display: grid;
@@ -34,6 +35,7 @@ body {
 	font-size: 1rem;
 	resize: none;
 	border: 1px solid #4e5563;
+	font-size: 1.2rem;
 }
 
 .mess-btn {
@@ -46,7 +48,14 @@ body {
 	font-weight: bold;
 	background-color: #282c34;
 	color: #fff;
+	cursor: pointer;
 }
+
+.mess-btn:hover {
+	border: 2px solid #4e5563;
+}
+
+/* Napis prawy dolny rog */
 
 .mess-info {
 	margin-right: 10px;
@@ -54,19 +63,123 @@ body {
 	height: 10vh;
 	border-radius: 10px;
 	color: #fff;
-	border: 1px solid #4e5563;
+	display: flex;
+	justify-content: center;
+	font-family: 'Exo', sans-serif;
 }
+
+#neon-text {
+	font-weight: 300;
+	margin: auto;
+	text-shadow:
+     0 0 4px #fff,
+		0 0 10px #fff,
+		0 0 20px #fff,
+		0 0 30px #0fa,
+		0 0 40px #0fa,
+		0 0 50px #0fa,
+		0 0 60px #0fa,
+		0 0 70px #0fa,
+		0 0 80px #0fa,
+		0 0 90px #0fa,
+		0 0 100px #0fa;
+}
+
+h1 {
+	font-size: 2.5rem;
+	animation: blinkin 2s infinite alternate;
+  }
+
+  @keyframes blinkin {
+
+	0%, 18%, 22%, 25%, 53%, 57%, 100% {
+
+		text-shadow:
+		0 0 4px #fff,
+		0 0 10px #fff,
+		0 0 20px #fff,
+		0 0 30px #0fa,
+		0 0 40px #0fa,
+		0 0 50px #0fa,
+		0 0 60px #0fa,
+		0 0 70px #0fa,
+		0 0 80px #0fa,
+		0 0 90px #0fa,
+		0 0 100px #0fa;
+
+	}
+
+	20%, 24%, 55% {
+		text-shadow: none;
+	}
+  }
+
+
+/* prawy div members, na razie ikonka */
 
 .members {
 	width: auto;
 	height: 87vh;
 	border: 1px solid #4e5563;
 	border-radius: 10px;
+	display: flex;
+	justify-content: center;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;    /*   padding nie wplywa na width  */
+	box-sizing: border-box;
+	padding-top: 70%;
+
 }
+
+#react-img {
+	max-width: 200px;
+	max-height: 200px;
+	opacity: 0.3;
+	animation: rotating 7s linear infinite;
+}
+
+@keyframes rotating {
+	0% {
+		transform: rotate(0deg);
+	}
+
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
+/* Wiadomosci */
 
 .messages {
 	width: 76vw;
 	height: auto;
 	border: 1px solid #4e5563;
 	border-radius: 10px;
+	grid-row: 1/2;
+	display: inline-flex;
+	flex-direction: column;
+	overflow-x: auto;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	padding: 20px;
+	font-family: 'Balsamiq Sans', cursive;
+	font-size: 1.2rem;
 }
+
+.message {
+	display: flex;
+	color: white;
+
+}
+
+.mess {
+	max-width: 500px;
+	min-height: fit-content;
+	border: 1px solid #4e5563;
+	padding: 15px;
+	border-radius: 9px;
+	overflow: hidden;
+}
+
+
