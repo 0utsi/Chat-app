@@ -1,49 +1,102 @@
 import './App.css';
+import { useState } from 'react'
 
-
-
-import React, { Component } from 'react'
 
 function App() {
 
-	const Messages = () => {
-		return (
-			<div className="messages">
+	const [messages, setMessages] = useState([])
 
-			</div>
-		)
-	};
+	const sendMessage = (msg) => {
 
-	const Members = () => {
-		return (
-			<div className="members">
+		const newMessageList = [
+			...messages,
+			{
+				message: msg
+			}
+		]
+		setMessages(newMessageList);
 
-			</div>
-		)
-	};
-
-	const MessageForm = () => {
-		return (
-			<div>
-				<form className="mess-form">
-					<button className="mess-btn"><i class="far fa-paper-plane fa-2x"></i></button>
-					<textarea name="option" className="mess-input" />
-					<div className="mess-info"></div>
-				</form >
-			</div >
-		)
-	};
-
+		console.log(newMessageList)
+	}
 
 	return (
 		<div className="App">
-			<Messages />
+			<Messages message={messages} />
 			<Members />
-			<MessageForm />
+			<MessageForm sendMessage={sendMessage} />
 		</div>
 	);
 }
 
+const Messages = (props) => {
+
+	return (
+		<div className="messages">
+			{
+				props.message.map((message, index) => (
+					<Message
+						key={message.index}
+						optionText={message}
+					/>
+				))
+			}
+		</div>
+	);
+};
+
+const Message = (props) => {
+
+	return (
+		<div className="message">
+			<p>{props.message}</p>
+		</div>
+	);
+
+}
+
+const Members = () => {
+
+	return (
+		<div className="members">
+
+		</div>
+	)
+};
+
+
+const MessageForm = (props) => {
+
+	const [message, setMessage] = useState('')
+
+
+	const onSubmit = (e) => {
+
+		e.preventDefault();
+
+		props.sendMessage(message)
+	}
+
+	return (
+		<div>
+			<form className="mess-form" onSubmit={onSubmit}>
+				<button
+					type="submit"
+					className="mess-btn"
+				>
+					<i className="far fa-paper-plane fa-2x"></i>
+				</button>
+				<input
+					type="text"
+					name="option"
+					className="mess-input"
+					value={message}
+					onChange={(e) => setMessage(e.target.value)}
+				/>
+				<div className="mess-info"></div>
+			</form>
+		</div>
+	);
+};
 
 
 export default App;
@@ -52,6 +105,3 @@ export default App;
 
 
 
-// <header className="App-header">
-// 				<img src={logo} className="App-logo" alt="logo" />
-// 			</header>
