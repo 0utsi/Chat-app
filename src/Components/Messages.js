@@ -1,10 +1,6 @@
 import { useEffect } from "react";
 
-
-
 export const Messages = (props) => {
-
-
 
 	useEffect(() => {
 

@@ -1,8 +1,5 @@
-import { useState } from 'react';
 import { Info } from './Info';
-import { useEffect } from 'react';
 import useLocalStorage from './useLocalStorage';
-import Picker from 'emoji-picker-react';
 
 export const MessageForm = (props) => {
 
