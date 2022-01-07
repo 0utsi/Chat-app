@@ -1,7 +1,10 @@
 import './App.css';
 import { useState } from 'react'
-import { MessageForm } from './MessageForm';
-
+import { MessageForm } from './Components/MessageForm';
+import moment from 'moment/moment.js'
+import { Messages } from './Components/Messages';
+import { Members } from './Components/Members';
+import { useEffect } from 'react'
 
 function App() {
 
@@ -9,17 +12,19 @@ function App() {
 
 	const sendMessage = (msg) => {
 
-		if (msg === '') {
+		if (msg.trim(' ') === '') {
 
-			//Do nothing
+			//Nic nie rob
 
 		} else {
 
 			const newMessageList = [
-				...messages,
 				{
+					author: 'gosc',
+					time: moment().calendar().toString(),
 					message: msg
-				}
+				},
+				...messages
 			]
 			setMessages(newMessageList);
 
@@ -28,55 +33,23 @@ function App() {
 
 	}
 
+	useEffect(() => {
+
+		const mes = localStorage.getItem(messages)
+
+		console.log(mes)
+
+	})
+
 	return (
 		<div className="App">
-			<Messages message={messages} />
+			<Messages
+				message={messages}
+			/>
 			<Members />
 			<MessageForm sendMessage={sendMessage} />
 		</div>
 	);
 }
 
-const Messages = (props) => {
-
-	return (
-		<div className="messages">
-			{
-				props.message.map(({ message }) => (
-					<Message
-						messageText={message}
-					/>
-				))
-			}
-		</div>
-	);
-};
-
-
-
-const Message = (props) => {
-
-	return (
-		<div className="message">
-			<p className="mess">{props.messageText}</p>
-		</div>
-	);
-
-}
-
-const Members = () => {
-
-	return (
-		<div className="members">
-			<img id="react-img" alt="img" src="./logo512.png" />
-		</div>
-	)
-};
-
-
 export default App;
-
-
-
-
-

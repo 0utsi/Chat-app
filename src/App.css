@@ -4,8 +4,8 @@
 	height: 100vh;
 	display: grid;
 	grid-template-columns: 13fr 4fr;
-	grid-template-rows: repeat(5, 1fr);
-	gap: 10px;
+	grid-template-rows: repeat(2, 1fr);
+	gap: 5px;
 	padding: 5px;
 	box-sizing: border-box;
 	overflow: hidden;
@@ -15,53 +15,63 @@ body {
 	background-color: #282c34;
 	scroll-behavior: smooth;
 }
+
 /* Dolny formularz z przyciskiem */
+
 .mess-form{
 	width: 100vw;
-	display: grid;
-	grid-template-columns: 1fr 12fr 4fr;
-	position: absolute;
-	bottom: 5px;
-	gap: 10px;
-	margin: auto;
+	display: flex;
+	flex-direction: row;
+	position: absolute;;
+	margin-top: 0;
+	align-items: center;
+	align-content: space-between;
+	gap: 6px;
+
 }
 
 .mess-input {
-	width:  auto;
+	width: 70vw;
 	height: 10vh;
 	border-radius: 10px;
 	background-color: #282c34;
 	color: #fff;
 	font-size: 1rem;
-	resize: none;
 	border: 1px solid #4e5563;
 	font-size: 1.2rem;
 	box-sizing: border-box;
-	padding: 10px;
 }
 
+.mess-input:focus {
+	border: none;
+	border-style: none;
+}
 
-.mess-btn {
-	width:  6vw;
+.send-btn {
+	position: relative;
+	width:  5.5vw;
 	height: 10vh;
 	border-radius: 10px;
-	font-size: 1.7rem;
+	font-size: 2.5rem;
 	border: 1px solid #4e5563;
-	font-family: 'Open Sans Condensed', sans-serif;
-	font-weight: bold;
 	background-color: #282c34;
 	color: #fff;
 	cursor: pointer;
 }
 
-.mess-btn:hover {
+.send-btn:hover {
 	border: 2px solid #4e5563;
 }
+
+.send-btn:hover .far{
+	font-size: 2.7rem;
+}
+
 
 /* Napis prawy dolny rog */
 
 .mess-info {
-	margin-right: 10px;
+	margin:auto;
 	width: auto;
 	height: 10vh;
 	border-radius: 10px;
@@ -72,7 +82,8 @@ body {
 }
 
 #neon-text {
-	font-weight: 300;
+	font-weight: 200;
+	cursor: default;
 	margin: auto;
 	text-shadow:
      	0 0 1px #fff,
@@ -90,13 +101,13 @@ body {
 
 h1 {
 	font-size: 2.5rem;
-	animation: blinkin 2s infinite alternate;
-	opacity: 0.75;
+	animation: blinkin 1s infinite alternate;
+	opacity: 0.70;
   }
 
   @keyframes blinkin {
 
-	0%, 18%, 22%, 25%, 53%, 57%, 100% {
+	0%, 18%, 22%, 25%, 30%, 38%, 45%, 53%, 57%, 100% {
 
 		text-shadow:
 		0 0 1px #fff,
@@ -113,7 +124,7 @@ h1 {
 
 	}
 
-	20%, 24%, 55% {
+	20.5%, 24.5%, 55.5% {
 		text-shadow: none;
 	}
   }
@@ -138,7 +149,7 @@ h1 {
 #react-img {
 	max-width: 200px;
 	max-height: 200px;
-	opacity: 0.3;
+	opacity: 0.4;
 	animation: rotating 7s linear infinite;
 }
 
@@ -160,29 +171,49 @@ h1 {
 	border: 1px solid #4e5563;
 	border-radius: 10px;
 	grid-row: 1/2;
-	flex-direction: column;
+	display: flex;
+	flex-direction: column-reverse;
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
 	padding: 20px;
 	font-family: 'Balsamiq Sans', cursive;
 	font-size: 1.1rem;
-	overflow: auto;
+	overflow: scroll;
 }
 
 .message {
 	display: flex;
 	color: white;
+	justify-content: space-between;
+	border-top: 0.5px dotted black;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	padding: 5px;
 	box-sizing: content-box;
 }
 
 .mess {
-	max-width: 600px;
-	margin-left: 30px;
-	border: 1px solid #4e5563;
-	padding: 15px;
+	max-width: 700px;
+	/* height: fit-content; */
+	margin-left: 40px;
+	border: 0.1px dotted #4e5563;
+	padding: 7px 15px 7px 10px;
 	border-radius: 15px;
-	overflow: scroll;
+	box-sizing: content-box;
+}
+
+.time{
+	opacity: 0.8;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 0.95rem;
+	font-style: italic;
+	text-decoration: underline;
+	cursor: default;
+}
+
+.mess:first-child {
 	animation: reaching 0.35s ease-out;
 }
 
@@ -199,3 +230,47 @@ h1 {
 		transform: scale(1)
 	}
 }
+
+
+
+/* Media */
+
+@media(max-width: 1024px) {
+	#react-img {
+		max-width: 120px;
+		max-height: 120px;
+	}
+
+	h1 {
+		font-size: 1.8rem;
+	  }
+
+	.far {
+		transform: scale(1.2);
+	}
+	.time{
+		font-size: 0.80rem;
+	}
+
+	.messages {
+		font-size: 1rem;
+	}
+
+}
+
+@media(max-width: 730px) {
+	.far {
+		transform: scale(1);
+	}
+
+	.mess-form{
+		width: 100vw;
+		grid-template-columns: 1fr 12fr 4fr;
+	}
+
+	.mess-btn {
+		width:  9vw;
+	}
+}
+
+

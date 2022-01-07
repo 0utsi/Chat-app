@@ -1,10 +1,12 @@
 import { useState } from 'react';
 import { Info } from './Info';
+import { useEffect } from 'react';
+import useLocalStorage from './useLocalStorage';
+import Picker from 'emoji-picker-react';
 
 export const MessageForm = (props) => {
 
-	const [message, setMessage] = useState('');
-
+	const [message, setMessage] = useLocalStorage('message', '');
 
 	const onSubmit = (e) => {
 
@@ -12,39 +14,33 @@ export const MessageForm = (props) => {
 
 		props.sendMessage(message);
 
-		e.target.elements.option.value = "";
+		setMessage('');
+
 	};
 
-
-
-	const handleUserKeyPress = (e) => {
-
-		if (e.which === 13 && !e.shiftKey) {
-			e.preventDefault();
-
-
-
-		}
-	};
 
 
 	return (
 		<div>
 			<form className="mess-form" onSubmit={onSubmit}>
-				<button
-					type="submit"
-					className="mess-btn"
-				>
-					<i className="far fa-paper-plane fa-2x"></i>
+
+				<button type="submit" className="send-btn">
+					<i className="far fa-paper-plane"></i>
 				</button>
-				<textarea
-					onKeyPress={handleUserKeyPress}
+
+				<input
 					name="option"
+					autocomplete="off"
 					className="mess-input"
 					value={message}
+					placeholder="Aa"
 					onChange={(e) => setMessage(e.target.value)} />
 				<Info />
+
+
 			</form>
 		</div>
 	);
 };
+
+
