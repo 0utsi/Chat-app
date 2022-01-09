@@ -4,7 +4,7 @@ import { MessageForm } from './Components/MessageForm';
 import moment from 'moment/moment.js'
 import { Messages } from './Components/Messages';
 import { Members } from './Components/Members';
-import { useEffect } from 'react'
+
 
 function App() {
 
@@ -13,8 +13,6 @@ function App() {
 	const sendMessage = (msg) => {
 
 		if (msg.trim(' ') === '') {
-
-			//Nic nie rob
 
 		} else {
 
@@ -32,14 +30,6 @@ function App() {
 		}
 
 	}
-
-	useEffect(() => {
-
-		const mes = localStorage.getItem(messages)
-
-		console.log(mes)
-
-	})
 
 	return (
 		<div className="App">
