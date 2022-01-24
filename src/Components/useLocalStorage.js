@@ -21,6 +21,7 @@ export default function useLocalStorage(key, initialMessage) {
 		localStorage.setItem(key, JSON.stringify(message))
 
 
+
 	})
 
 	return [message, setMessage]

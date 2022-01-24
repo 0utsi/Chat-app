@@ -1,17 +1,7 @@
-import { useEffect } from "react";
-
 export const Messages = (props) => {
-
-	useEffect(() => {
-
-		const mes = localStorage.getItem(props)
-
-		console.log(mes)
-	})
 
 	return (
 		<div className="messages">
-
 			{props.message.map(({ message, time, author }) => (
 				<Message
 					messageText={message}

@@ -15,6 +15,8 @@ export const MessageForm = (props) => {
 
 	};
 
+
+
 	return (
 		<div>
 			<form className="mess-form" onSubmit={onSubmit}>
@@ -25,8 +27,7 @@ export const MessageForm = (props) => {
 
 				<input
 					name="option"
-					// @ts-ignore
-					autocomplete="off"
+					autoComplete="off"
 					className="mess-input"
 					value={message}
 					placeholder="Aa"
